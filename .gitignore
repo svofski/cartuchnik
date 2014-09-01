@@ -1,0 +1,9 @@
+de1jig
+demoscene
+experiments
+roms
+*.o
+*.elf
+*.map
+*.bak
+*.kicad_pcb-bak

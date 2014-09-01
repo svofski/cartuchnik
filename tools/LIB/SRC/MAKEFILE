@@ -1,0 +1,66 @@
+BINPATH=../../bin/
+ASMPATH=../../asm/
+OBJECTPATH=../../obj/
+LIBPATH=../../lib/
+LIBPATHLIB=../../lib
+S19PATH=../../s19/
+TMPPATH=../../tmp/
+INCLUDEPATH=../../include/
+CPATH=./
+CPP=cpp
+CC=cc09
+AS=as09
+AR=ar09
+LD=ld09
+
+
+CCOPTS=-O2                       \
+      -quiet                     \
+      -fomit-frame-pointer       \
+      -mfixed-regs               \
+#      -Wunused                   \
+#      -Wuninitialized
+
+OBJECTS = $(OBJECTPATH)mulhi3.o $(OBJECTPATH)divhi3.o $(OBJECTPATH)modhi3.o
+
+VECOBJS = $(OBJECTPATH)random.o $(OBJECTPATH)scroll.o
+
+all: $(LIBPATH)libgcc.a $(LIBPATH)crt0.o $(LIBPATH)scroll.o $(LIBPATH)libvec.a
+
+$(LIBPATH)libvec.a: $(VECOBJS)
+	-$(BINPATH)rm -f $(LIBPATH)libvec.a
+	$(BINPATH)$(AR) -q $(LIBPATH)libvec.a $(VECOBJS)
+
+$(LIBPATH)libgcc.a : $(OBJECTS)
+	-$(BINPATH)rm -f $(LIBPATH)libgcc.a
+	$(BINPATH)$(AR) -q $(LIBPATH)libgcc.a $(OBJECTS)
+
+$(OBJECTPATH)mulhi3.o : $(LIBSRCPATH)mulhi3.s
+	$(BINPATH)$(AS) -o$(OBJECTPATH)mulhi3.o $(LIBSRCPATH)mulhi3.s
+
+$(OBJECTPATH)divhi3.o : $(LIBSRCPATH)divhi3.s
+	$(BINPATH)$(AS) -o$(OBJECTPATH)divhi3.o $(LIBSRCPATH)divhi3.s
+
+$(OBJECTPATH)modhi3.o : $(LIBSRCPATH)modhi3.s
+	$(BINPATH)$(AS) -o$(OBJECTPATH)modhi3.o $(LIBSRCPATH)modhi3.s
+
+$(LIBPATH)crt0.o : $(LIBSRCPATH)crt0.s
+	$(BINPATH)$(AS) -o$(LIBPATH)crt0.o $(LIBSRCPATH)crt0.s
+
+$(LIBPATH)scroll.o : $(LIBSRCPATH)scroll.s
+	$(BINPATH)$(AS) -o$(OBJECTPATH)scroll.o $(LIBSRCPATH)scroll.s
+
+$(OBJECTPATH)random.o : $(ASMPATH)random.s
+	$(BINPATH)$(AS) -o$(OBJECTPATH)random.o $(ASMPATH)random.s
+
+# c-compile the given C file
+$(ASMPATH)random.s : $(TMPPATH)random.cp $(CPATH)random.c makefile
+	$(BINPATH)$(CC) $(CCOPTS) $(TMPPATH)random.cp -o $(ASMPATH)random.s
+
+# pre process the C file
+$(TMPPATH)random.cp: $(CPATH)random.c $(INCLUDEPATH)vectrex.h makefile
+	$(BINPATH)$(CPP) $(CPATH)random.c > $(TMPPATH)random.cp -I$(INCLUDEPATH)
+
+clean :
+	-$(BINPATH)rm -f $(OBJECTPATH)*.o $(LIBPATH)*.o $(LIBPATH)libgcc.a $(LIBPATH)veclib.a
+

@@ -1,0 +1,95 @@
+.DELETE_ON_ERROR:
+# all 'tmp' files are kept in below given directories!
+
+BINPATH=../bin/
+ASMPATH=../asm/
+OBJECTPATH=../obj/
+LIBPATH=../lib/
+LIBPATHLIB=../lib
+S19PATH=../s19/
+TMPPATH=../tmp/
+INCLUDEPATH=../include/
+EMUPATH=../../progs/vectrex
+INVERS_EMUPATH=../../../cc09
+CPATH=./
+OUTPATH=./
+
+
+CPP=cpp
+CC=cc09
+AS=as09
+AR=ar09
+LD=ld09
+BIN=stobin
+
+# name of the 'single' file to compile...
+NAME=demo2
+
+# for inlines to work you must set optimization greater 0!
+# completly inlined functions are still compiled into
+# the binary...
+# sometime I have to build a 'grab' to remove the from the source...
+# (after cpp)
+CCOPTS=-O2                       \
+      -quiet                     \
+      -fomit-frame-pointer       \
+      -mfixed-regs               \
+#      -Wunused                   \
+#      -Wuninitialized
+
+CPPOPTS = \
+       -DFRAME_Y
+
+# gcc compiled with y register = frame pointer
+# FRAME_Y
+# FRAME_X
+# FRAME_U (see vectrex.h)
+
+# for now the linker need two options, one before the
+# input, one after the input (- i didn't make it so)
+LDOPTS1=-L $(LIBPATHLIB) -b__bss=0Hc880 -b__data=___header_end -o$(S19PATH)$(NAME) $(LIBPATH)crt0.o
+LDOPTS2=-lvec -lgcc
+
+
+
+# to inline functions completely  declar them as static
+# do not initialize RAM data, it will be stored in <non ram> if you do
+
+# for now the compiler identifies ram as uninitialized data (== bss) and
+# stores bss in an own segment, this will start at c880 (vectrex ram)
+# see linker options below!
+
+
+# generate (cartridge) binary from S19 file...
+$(OUTPATH)$(NAME).bin: clean $(S19PATH)$(NAME).s19 $(OBJECTPATH)$(NAME).o $(ASMPATH)$(NAME).s $(TMPPATH)$(NAME).cp $(CPATH)$(NAME).c makefile
+	$(BINPATH)$(BIN) -w -i$(S19PATH)$(NAME).s19 -o$(OUTPATH)$(NAME).bin
+#	cp $(OUTPATH)$(NAME).bin $(EMUPATH)
+#	cd $(EMUPATH)
+#	vectrex $(NAME).bin
+#	cd $(INVERS_EMUPATH)
+
+# in order to compile to correct locations the below given
+# 'constants' for the __bss and __data area MUST be set!
+#  see LDOPTS#
+#
+# generate S19 file from our program, the 'main' header and some
+# library files
+$(S19PATH)$(NAME).s19: $(OBJECTPATH)$(NAME).o $(ASMPATH)$(NAME).s $(TMPPATH)$(NAME).cp $(CPATH)$(NAME).c makefile
+	$(BINPATH)$(LD) $(LDOPTS1) $(OBJECTPATH)$(NAME).o $(LDOPTS2)
+
+# assemble *.s output to a *.o file
+$(OBJECTPATH)$(NAME).o : $(ASMPATH)$(NAME).s $(TMPPATH)$(NAME).cp $(CPATH)$(NAME).c makefile
+	$(BINPATH)$(AS) -o$(OBJECTPATH)$(NAME).o $(ASMPATH)$(NAME).s
+
+# c-compile the given C file
+$(ASMPATH)$(NAME).s : $(TMPPATH)$(NAME).cp $(CPATH)$(NAME).c makefile
+	$(BINPATH)$(CC) $(CCOPTS) $(TMPPATH)$(NAME).cp -o $(ASMPATH)$(NAME).s
+#	c:/t/gcc-2.81/cc1.exe $(COPTS) $(TMPPATH)$(NAME).cp -o $(ASMPATH)$(NAME).s
+
+# pre process the C file
+$(TMPPATH)$(NAME).cp : $(CPATH)$(NAME).c $(INCLUDEPATH)vectrex.h makefile
+	$(BINPATH)$(CPP) $(CPPOPTS) $(CPATH)$(NAME).c > $(TMPPATH)$(NAME).cp -I$(INCLUDEPATH)
+
+clean:
+	-$(BINPATH)rm -f $(TMPPATH)$(NAME).cp $(ASMPATH)$(NAME).s $(OBJECTPATH)$(NAME).o $(S19PATH)$(NAME).s19 $(OUTPATH)$(NAME).bin
+

@@ -1,0 +1,330 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"IOC",
+				"IOCON_MODE_INACT"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/D/users/svo/src/vector06cc/sdram/src/video/video.v",
+			"settings":
+			{
+				"buffer_size": 16390,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/users/svo/projects/videoconditioner/signals/all1.txt",
+			"settings":
+			{
+				"buffer_size": 29,
+				"line_ending": "Windows",
+				"name": "all1.txt"
+			}
+		},
+		{
+			"contents": "# Copyright (c) 1993-2009 Microsoft Corp.\n#\n# This is a sample HOSTS file used by Microsoft TCP/IP for Windows.\n#\n# This file contains the mappings of IP addresses to host names. Each\n# entry should be kept on an individual line. The IP address should\n# be placed in the first column followed by the corresponding host name.\n# The IP address and the host name should be separated by at least one\n# space.\n#\n# Additionally, comments (such as these) may be inserted on individual\n# lines or following the machine name denoted by a '#' symbol.\n#\n# For example:\n#\n#      102.54.94.97     rhino.acme.com          # source server\n#       38.25.63.10     x.acme.com              # x client host\n\n# localhost name resolution is handled within DNS itself.\n#	127.0.0.1       localhost\n#	::1             localhost\n127.0.0.1 geo.yahoo.com ",
+			"file": "/C/Windows/System32/drivers/etc/hosts",
+			"file_size": 824,
+			"file_write_time": 130216515419730871,
+			"settings":
+			{
+				"buffer_size": 827,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/Makefile/Make.sublime-build",
+	"command_palette":
+	{
+		"height": 311.0,
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 132.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/users/svo/projects/videoconditioner/signals/coeffs.txt",
+		"/D/users/svo/src/vector06cc/sdram/src/vector06cc.v",
+		"/D/users/svo/src/vector06cc/trunk/firmware/floppysrc/main.c",
+		"/C/Users/svo/AppData/Local/Temp/bin2hex.c",
+		"/D/users/svo/src/vector06cc/trunk/firmware/floppysrc/slave.c",
+		"/D/users/svo/src/vector06cc/trunk/firmware/floppysrc/menu.c",
+		"/D/users/svo/src/vector06cc/wxeda-cycloneiv/src/vector06cc.v",
+		"/D/users/svo/src/vector06cc/wxeda-cycloneiv/src/video/video.v",
+		"/D/users/svo/src/vector06cc/sdram/src/clockster.v",
+		"/D/kicad-build/kicad-winbuilder-3.4/kicad/bin/scripting/plugins/teardrops.py",
+		"/D/kicad-build/kicad-winbuilder-3.4/kicad/bin/scripting/plugins/dump.py",
+		"/D/users/svo/projects/avr-experiments-board/als.c",
+		"/D/users/svo/src/vector06cc/wxeda-cycloneiv/src/clockster.v",
+		"/D/users/svo/projects/avr-experiments-board/lcd.c",
+		"/D/users/svo/projects/avr-experiments-board/lcd.h",
+		"/C/Users/svo/AppData/Local/Temp/Temp1_lcdlibrary.zip/test_lcd.c",
+		"/C/Users/svo/Downloads/Verilog.sublime-package",
+		"/D/users/svo/src/vector06cc/sdram/vector06cc.qsf",
+		"/D/kicad-build/kicad-winbuilder-3.4/kicad/bin/scripting/plugins/dump.pyc",
+		"/D/users/svo/projects/cartuchnik/firmware/externals/LPCUSBLib/Drivers/USB/Core/DCD/LPC17XX/Endpoint_LPC17xx.h",
+		"/D/users/svo/projects/cartuchnik/firmware/externals/LPCUSBLib/Drivers/USB/Core/DCD/LPC17XX/Endpoint_LPC17xx.c",
+		"/D/users/svo/projects/cartuchnik/firmware/src/Lib/fatutil.c",
+		"/D/users/svo/projects/cartuchnik/firmware/src/Lib/fatutil.h",
+		"/D/users/svo/projects/cartuchnik/firmware/src/cartucho.c",
+		"/D/users/svo/projects/cartuchnik/firmware/src/startup_LPC17xx.S",
+		"/D/users/svo/projects/cartuchnik/firmware/ldscript_rom_gnu.ld",
+		"/D/users/svo/projects/cartuchnik/firmware/src/Lib/SCSI.c",
+		"/D/users/svo/projects/cartuchnik/firmware/src/Lib/DataRam.h",
+		"/D/users/svo/projects/cartuchnik/firmware/src/Lib/DataRam.c",
+		"/D/users/svo/projects/cartuchnik/firmware/Makefile",
+		"/D/users/svo/projects/cartuchnik/firmware/externals/LPCUSBLib/Drivers/USB/Core/EndpointStream.c",
+		"/D/users/svo/projects/cartuchnik/firmware/src/MassStorage.c",
+		"/D/users/svo/projects/cartuchnik/firmware/include/vectrexbus.h",
+		"/D/users/svo/projects/cartuchnik/firmware/src/vectrex.S",
+		"/C/Users/svo/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/D/users/svo/src/vector06cc/trunk/src/video/framebuffer.v",
+		"/D/users/svo/projects/cartuchnik/firmware/src/Descriptors.c",
+		"/D/users/svo/projects/cartuchnik/firmware/src/Descriptors.h"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			" ",
+			"truecolor_R",
+			"lowcolor_b",
+			"menu_busy",
+			"fsel_getselected",
+			"menu_init",
+			"ptrfile",
+			"menu_dis",
+			"MENURESULT_DISK",
+			"joy",
+			"menu_init",
+			"WITH_COMPO",
+			"single",
+			"_ce",
+			"sdram_ba",
+			"sdram_addr",
+			"sdram_dq",
+			"sdram_",
+			".Add",
+			"item",
+			"	\n",
+			"Endpoint_Read_Stream_LE",
+			"xprintf",
+			"disk_cache",
+			"disk_ca",
+			"iap_",
+			"stack",
+			"stack_mem",
+			"__cs3_stack",
+			"stack_size",
+			"stack",
+			"NOLOAD",
+			"MassStorage_GetAddressInImage",
+			"A2A3",
+			"DiskImage",
+			"writebl",
+			"readblock",
+			"MassStorage_GetAddressInImage"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/D/users/svo/src/vector06cc/sdram/src/video/video.v",
+					"settings":
+					{
+						"buffer_size": 16390,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6806,
+								6806
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Verilog/Verilog.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3661.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/D/users/svo/projects/videoconditioner/signals/all1.txt",
+					"settings":
+					{
+						"buffer_size": 29,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								29,
+								29
+							]
+						],
+						"settings":
+						{
+							"auto_name": "all1.txt",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Windows/System32/drivers/etc/hosts",
+					"settings":
+					{
+						"buffer_size": 827,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								827,
+								827
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 169.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

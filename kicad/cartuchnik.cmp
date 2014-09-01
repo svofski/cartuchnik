@@ -1,0 +1,143 @@
+Cmp-Mod V01 Created by CvPcb (2013-07-07 BZR 4022)-stable date = 1/6/2014 3:49:06 AM
+
+BeginCmp
+TimeStamp = /52BB48B8;
+Reference = C1;
+ValeurCmp = CP1;
+IdModule  = c_tant_D;
+EndCmp
+
+BeginCmp
+TimeStamp = /52BEDFBF;
+Reference = CON1;
+ValeurCmp = USB-MINI-B;
+IdModule  = conn_usb_B_micro_smd;
+EndCmp
+
+BeginCmp
+TimeStamp = /52BEDDAC;
+Reference = K1;
+ValeurCmp = CONN_3;
+IdModule  = PIN_ARRAY_3X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /52BED9F7;
+Reference = R1;
+ValeurCmp = 3K3;
+IdModule  = SM0805;
+EndCmp
+
+BeginCmp
+TimeStamp = /52BEEC88;
+Reference = R2;
+ValeurCmp = 3K3;
+IdModule  = SM0805;
+EndCmp
+
+BeginCmp
+TimeStamp = /52C9F0C7;
+Reference = R3;
+ValeurCmp = 220;
+IdModule  = SM0805;
+EndCmp
+
+BeginCmp
+TimeStamp = /52C9F0DA;
+Reference = R4;
+ValeurCmp = 220;
+IdModule  = SM0805;
+EndCmp
+
+BeginCmp
+TimeStamp = /52BB2C99;
+Reference = RP1;
+ValeurCmp = R_PACK4;
+IdModule  = r_cat16-4;
+EndCmp
+
+BeginCmp
+TimeStamp = /52BB37E5;
+Reference = RP2;
+ValeurCmp = R_PACK4;
+IdModule  = r_cat16-4;
+EndCmp
+
+BeginCmp
+TimeStamp = /52BB2CF6;
+Reference = RP3;
+ValeurCmp = R_PACK4;
+IdModule  = r_cat16-4;
+EndCmp
+
+BeginCmp
+TimeStamp = /52BB37F3;
+Reference = RP4;
+ValeurCmp = R_PACK4;
+IdModule  = r_cat16-4;
+EndCmp
+
+BeginCmp
+TimeStamp = /52BB3801;
+Reference = RP5;
+ValeurCmp = R_PACK4;
+IdModule  = r_cat16-4;
+EndCmp
+
+BeginCmp
+TimeStamp = /52BB380F;
+Reference = RP6;
+ValeurCmp = R_PACK4;
+IdModule  = r_cat16-4;
+EndCmp
+
+BeginCmp
+TimeStamp = /52BB381D;
+Reference = RP7;
+ValeurCmp = R_PACK4;
+IdModule  = r_cat16-4;
+EndCmp
+
+BeginCmp
+TimeStamp = /52BB382B;
+Reference = RP8;
+ValeurCmp = R_PACK4;
+IdModule  = r_cat16-4;
+EndCmp
+
+BeginCmp
+TimeStamp = /52BEEBC5;
+Reference = SW1;
+ValeurCmp = SW_PUSH;
+IdModule  = smd_push;
+EndCmp
+
+BeginCmp
+TimeStamp = /52BEEC82;
+Reference = SW2;
+ValeurCmp = SW_PUSH;
+IdModule  = smd_push;
+EndCmp
+
+BeginCmp
+TimeStamp = /52BA1925;
+Reference = U1;
+ValeurCmp = VECTREXCONN;
+IdModule  = VECTREX_CARTRIDGE;
+EndCmp
+
+BeginCmp
+TimeStamp = /52BA1DD0;
+Reference = U2;
+ValeurCmp = LPCXPRESSO_1;
+IdModule  = LPCXPRESSO;
+EndCmp
+
+BeginCmp
+TimeStamp = /52BED37B;
+Reference = U3;
+ValeurCmp = 4052;
+IdModule  = SO16E;
+EndCmp
+
+EndListe
