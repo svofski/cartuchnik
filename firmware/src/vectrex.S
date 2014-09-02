@@ -1,4 +1,3 @@
-/* vim: set ft=gas: */
 #include "LPC17xx_asm.h"
 #include "vectrexbus.h"
 
