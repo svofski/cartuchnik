@@ -7,3 +7,4 @@ roms
 *.map
 *.bak
 *.kicad_pcb-bak
+.*.swp
