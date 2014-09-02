@@ -64,11 +64,12 @@ typedef struct _ROMEntry {
 ROMEntry* ROMEntries;
 
 const ROMEntry FakeROMs[] __attribute__ ((section (".faketable"))) = {
-	{"LOADER.BIN\200", 0x0, 0x8000},
-	{"LOADER.BIN\200", 0x0, 0x8000},
-	{"LOADER.BIN\200", 0x0, 0x8000},
-	{"LOADER.BIN\200", 0x0, 0x8000},
-	{"LOADER.BIN\200", 0x0, 0x8000},
+	{"1LOADER.BIN\200", 0x0, 0x8000},
+	{"2LOADER.BIN\200", 0x0, 0x8000},
+	{"3LOADER.BIN\200", 0x0, 0x8000},
+	{"4LOADER.BIN\200", 0x0, 0x8000},
+	{"5LOADER.BIN\200", 0x0, 0x8000},
+	{"6LOADER.BIN\200", 0x0, 0x8000},
 };
 
 typedef struct zoomani_ {
@@ -294,7 +295,8 @@ static int JoyInput(uint8_t flipping) {
 	return flipping;
 }
 
-int MainFrame(int frame) {
+// FRAMEFUNC
+int MainFrame(int frame, uint8_t buttons) {
 	static uint8_t flipping = 0;
 
 	flipping = JoyInput(flipping);
@@ -309,7 +311,10 @@ int MainFrame(int frame) {
 
 	if (starspeed > 1) --starspeed;
 
-	itohex8(debug, total_items);
+	//if (buttons)
+	//	itohex8(debug, buttons);
+	itohex8(debug, page_start + selected);
+	//itohex8(debug, total_items);
 	//itohex8(debug + 2, *(uint8_t*) 0xc83d);
 	SetCharSizeHW(0xfc30);
 
@@ -325,7 +330,16 @@ int MainFrame(int frame) {
 	Moveto(page_left - 10 + anix, (star_y/128) - 5);
 	Intensity(0x60);
 	Draw_VLp_b(starrot, 0xa - (abs(star_y_error>>9)), 0);
+
+	// pass on to ROM selection
+	if (buttons != 0)
+		return 2;
+
 	return 0;
+}
+
+int GetSelectedROMIndex(void) {
+	return page_start + selected;
 }
 
 const ZoomDesc titlezoom[] = {
@@ -340,8 +354,8 @@ const ZoomDesc titlezoom[] = {
 	{zoom:0xf068, xofs:-100, yofs:120, intensity:0x7F},
 };
 
-
-int Start_Anim(int frame) {
+// FRAMEFUNC
+int Start_Anim(int frame, uint8_t buttons) {
 	frame = frame/2;
 	if (frame < sizeof(titlezoom)/sizeof(titlezoom[0])) {
 		Intensity(0x7f);
@@ -350,4 +364,20 @@ int Start_Anim(int frame) {
 		return 0;
 	}
 	return 1;
+}
+
+// FRAMEFUNC
+int SelectedFrame(int frame, uint8_t buttons) {
+	//sprintf(debug, "Selected: %x\200", GetSelectedROMIndex());
+	memcpy(debug, "SELECTED __\200\200", sizeof(debug));
+	itohex8(debug + 9, GetSelectedROMIndex());
+
+	frame = frame/2;
+	if (frame < sizeof(titlezoom)/sizeof(titlezoom[0])) {
+		Intensity(0x7f);
+		SetCharSizeHW(titlezoom[frame].zoom);
+		Print_Str_d(titlezoom[frame].xofs, titlezoom[frame].yofs, debug);
+		return 0;
+	}
+	return 3;
 }

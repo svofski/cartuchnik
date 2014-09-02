@@ -147,4 +147,38 @@ _Read_Btns:
 	tfr a, b
 	puls a, x, dp, pc
 
+	.globl _Ram_Dummy
+_Ram_Dummy:
+; input from C compiler:
+; - 8-bit argument in register b
+	stb 0x0000
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	jmp 0xf000
+	nop
+	jmp 0xf000
+	nop
+	jmp 0xf000
+	nop
+	jmp 0xf000
+	nop
+	jmp 0xf000
+	nop
+	jmp 0xf000
+	beq _Ram_Dummy
+	bne _Ram_Dummy
 	.end

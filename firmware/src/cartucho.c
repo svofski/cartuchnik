@@ -65,6 +65,32 @@ void VectrexBusInit(void)
 	// A2A3ENA = 1, disable serial bootloader lines
 	Chip_GPIO_WriteDirBit(LPC_GPIO, A2A3ENA_PORT, A2A3ENA, true);
 	Chip_GPIO_WritePortBit(LPC_GPIO, A2A3ENA_PORT, A2A3ENA, true);
+
+	Chip_GPIO_WritePortBit(LPC_GPIO, HALT_N_PORT, HALT_N, true);
+	Chip_GPIO_WriteDirBit(LPC_GPIO, HALT_N_PORT, HALT_N, true);
+
+	Chip_GPIO_WritePortBit(LPC_GPIO, NMI_N_PORT, NMI_N, true);
+	Chip_GPIO_WriteDirBit(LPC_GPIO, NMI_N_PORT, NMI_N, true);
 }
 
+void VectrexBusUnhold(void) 
+{
+	// release bus hold
+	Chip_GPIO_WritePortBit(LPC_GPIO, HALT_N_PORT, HALT_N, true);
+}
 
+void VectrexBusHold(void)
+{
+	Chip_GPIO_WritePortBit(LPC_GPIO, HALT_N_PORT, HALT_N, false);
+}
+
+void VectrexNMI(void) 
+{
+	volatile int delay;
+
+	Chip_GPIO_WritePortBit(LPC_GPIO, NMI_N_PORT, NMI_N, false);
+	for (delay = 0; delay < 1024; delay++) {
+		__asm__ volatile("nop");
+	}
+	Chip_GPIO_WritePortBit(LPC_GPIO, NMI_N_PORT, NMI_N, true);
+}

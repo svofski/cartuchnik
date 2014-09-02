@@ -2,6 +2,9 @@ de1jig
 demoscene
 experiments
 roms
+firmware/bin
+firmware/build
+loader/build
 *.o
 *.elf
 *.map

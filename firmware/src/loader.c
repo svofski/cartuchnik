@@ -65,3 +65,8 @@ void PrepareLoader(uint8_t* scratch) {
 	// point current ROMBase to the RAM scratch area 
 	ROMBase = scratch;
 }
+
+void SelectROM(uint8_t* scratch, uint8_t index) {
+	ROMEntry* romtable = (ROMEntry*) (scratch + 32768 - ROMTABLE_SIZE);
+	ROMBase = romtable[index].ROMBase;
+}

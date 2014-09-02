@@ -73,10 +73,8 @@ static void SetupHardware(void)
     UART0_Init(230400);
     NVIC_EnableIRQ(UART0_IRQn);
 	xprintf("\n\n\nVectrexador\n");
-	xprintf("\n\n\nVectrexador2\n");
 
 #ifndef SERIALDEBUG	
-	dflihdfgkjl
     NVIC_DisableIRQ(UART0_IRQn);
 	UART0_UnInit();
 	VectrexBusInit();
@@ -88,8 +86,8 @@ static void SetupHardware(void)
 volatile int USBUnplugged = 0;
 volatile int USBConnected = 0;
 
-
 #define WITH_USB
+
 
 /**
  *  @brief  Main program entry point
@@ -105,7 +103,7 @@ int main(void)
 #ifdef WITH_USB	
 
 	xprintf("\nLet's see some usb stuff");
-
+	
 	int i;
 	// initially expect USB connection
 	for (i = 0; ; i++) {
@@ -120,10 +118,27 @@ int main(void)
 	// if USB is unplugged, serve the vectrex bus
 	PrepareLoader(DataRam_GetScratchRAM());
 
+	xprintf("\nLOADER.BIN ROMBase=%x\n", ROMBase);
+	void *loader = ROMBase;
+	SelectROM(DataRam_GetScratchRAM(), 1); 
+	xprintf("1 ROMBase=%x\nServing...", ROMBase);
+	ROMBase = loader;
+
     NVIC_DisableIRQ(UART0_IRQn);
 	UART0_UnInit();		
 	VectrexBusInit();
-	VectrexBusSlave();
+
+
+	//SelectROM(DataRam_GetScratchRAM(), 1); -- this works
+	int romIndex = VectrexBusSlave();	
+	//VectrexBusHold();
+
+	SelectROM(DataRam_GetScratchRAM(), romIndex); 
+
+	//VectrexBusUnhold();
+	//VectrexNMI();
+	for(;;)
+		VectrexBusSlave();
 }
 
 

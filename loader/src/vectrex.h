@@ -46,5 +46,18 @@ void Joy_Analog(uint8_t precision);
 
 uint8_t Read_Btns(void);
 
-typedef int (*FRAMEFUNC)(int);
+#define ROM_SELECTOR	(* ((int8_t *) 0x0000))
 
+#define NMI_VEC	(* ((int16_t *) 0xcbfb))
+#define SWI_VEC	(* ((int16_t *) 0xcbfb))
+#define IRQ_VEC	(* ((int16_t *) 0xcbf8))
+#define FIRQ_VEC (* ((int16_t *) 0xcbf5))
+#define ROM_ENTRY_POINT 0xF000
+
+typedef int (*FRAMEFUNC)(int, uint8_t);
+
+typedef void (*ROMENTRY)(void);
+
+typedef void (*RAMFUNC)(uint8_t);
+
+void Ram_Dummy(uint8_t index);

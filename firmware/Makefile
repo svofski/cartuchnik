@@ -10,7 +10,7 @@ SERIAL=/dev/tty.SLAB_USBtoUART
 BITRATE=230400
 
 ARCH=-mthumb -mcpu=cortex-m3
-OPTIMIZATION = -O0 -g 
+OPTIMIZATION = -O0 -g -save-temps
 #OPTIMIZATION = -Os -g 
 #OPTIMIZATION = -O3 -g -save-temps -fverbose-asm
 #OPTIMIZATION = -save-temps -fverbose-asm -Os -g -funroll-all-loops -fprefetch-loop-arrays
@@ -85,7 +85,7 @@ VPATH = $(foreach DIR, $(SOURCEDIRS), $(strip $(DIR)):)
 all: $(BUILDDIR)/$(PROJECT).hex $(OUTDIR)/$(PROJECT).bin
 
 burn: $(OUTDIR)/$(PROJECT).bin
-	~/tmpsrc/lpc21isp/lpc21isp -bin $(OUTDIR)/$(PROJECT).bin $(SERIAL) $(BITRATE) 12000
+	~/tmpsrc/lpc21isp/lpc21isp -bin $(OUTDIR)/$(PROJECT).bin $(SERIAL) $(BITRATE) 12000 -term
 
 burnterm: $(OUTDIR)/$(PROJECT).bin
 	~/tmpsrc/lpc21isp/lpc21isp -term -bin $(OUTDIR)/$(PROJECT).bin $(SERIAL) $(BITRATE) 12000
