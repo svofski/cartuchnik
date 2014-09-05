@@ -7,6 +7,7 @@ CC=$(CROSS)/m6809-unknown-none-gcc
 LD=$(CC)
 AS=$(CC)
 
+#OPTIMIZE=-O0
 OPTIMIZE=-Os
 #OPTIMIZE=-freorder-blocks -fmove-loop-invariants
 #include optimizations.s.inc

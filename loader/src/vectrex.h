@@ -60,4 +60,5 @@ typedef void (*ROMENTRY)(void);
 
 typedef void (*RAMFUNC)(uint8_t);
 
+extern uint16_t Ram_Dummy_Size;
 void Ram_Dummy(uint8_t index);

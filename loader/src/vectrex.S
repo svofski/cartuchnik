@@ -148,37 +148,21 @@ _Read_Btns:
 	puls a, x, dp, pc
 
 	.globl _Ram_Dummy
+	.globl _Ram_Dummy_Size
+_Ram_Dummy_Size:
+	.dw #_Ram_Dummy_End - #_Ram_Dummy
 _Ram_Dummy:
 ; input from C compiler:
 ; - 8-bit argument in register b
+	lda #0xff 
 	stb 0x0000
-	nop
-	nop
-	nop
-	nop
-	nop
-	nop
-	nop
-	nop
-	nop
-	nop
-	nop
-	nop
-	nop
-	nop
-	nop
-	nop
+L1:
+	deca
+	bne L1
 	jmp 0xf000
+L2:	
+	beq L2
+	bne L2
 	nop
-	jmp 0xf000
-	nop
-	jmp 0xf000
-	nop
-	jmp 0xf000
-	nop
-	jmp 0xf000
-	nop
-	jmp 0xf000
-	beq _Ram_Dummy
-	bne _Ram_Dummy
+_Ram_Dummy_End:
 	.end

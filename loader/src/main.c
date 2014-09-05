@@ -13,14 +13,8 @@ static uint8_t state = 0;
 static uint8_t frame;
                              
 void SelectROM(uint8_t index) {
-    memcpy((void *)0xc800, Ram_Dummy, 128);
+    memcpy((void *)0xc800, Ram_Dummy, Ram_Dummy_Size);
     ((RAMFUNC)((void *)0xc800))(index);
-
-    //NMI_VEC = ROM_ENTRY_POINT;
-    //ROM_SELECTOR = index;
-
-    //((ROMENTRY)((void *)0xf000))();
-    for(;;);
 }
 
 int main()
