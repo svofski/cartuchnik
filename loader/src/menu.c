@@ -368,9 +368,7 @@ int Start_Anim(int frame, uint8_t buttons) {
 
 // FRAMEFUNC
 int SelectedFrame(int frame, uint8_t buttons) {
-	//sprintf(debug, "Selected: %x\200", GetSelectedROMIndex());
-	memcpy(debug, "SELECTED __\200\200", sizeof(debug));
-	itohex8(debug + 9, GetSelectedROMIndex());
+	vstrncpy(debug, ROMEntries[GetSelectedROMIndex()].Name, sizeof(debug));
 
 	frame = frame/2;
 	if (frame < sizeof(titlezoom)/sizeof(titlezoom[0])) {
